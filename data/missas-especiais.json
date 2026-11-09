@@ -1,0 +1,65 @@
+{
+  "_comment": "Missas especiais e eventos litúrgicos únicos (não recorrentes). São exibidos em destaque no sistema, separados das escalas semanais.",
+  "_schema": {
+    "id":                  "Identificador único da celebração",
+    "name":                "Nome da celebração",
+    "subtitle":            "Descrição ou subtítulo",
+    "date":                "Data (YYYY-MM-DD)",
+    "dayName":             "Nome do dia da semana",
+    "time":                "Horário (HH:MM)",
+    "timeHour":            "Hora (número)",
+    "timeMinute":          "Minuto (número)",
+    "theme":               "'gold' | 'purple' | 'blue' — tema visual do card",
+    "icon":                "Emoji de destaque",
+    "active":              "true/false — se deve aparecer no site",
+    "mandatoryAttendance": "true/false — se todos devem comparecer",
+    "mandatoryMessage":    "Texto do aviso de presença obrigatória",
+    "roles": {
+      "defined": "Array de funções já atribuídas: { role, participantId, participantName, type }",
+      "tbd":     "Array de nomes de funções ainda a definir"
+    }
+  },
+
+  "items": [
+    {
+      "id": "corpus-christi-2026",
+      "name": "Corpus Christi",
+      "subtitle": "Solenidade do Corpo e Sangue de Cristo",
+      "date": "2026-06-04",
+      "dayName": "Quinta-feira",
+      "time": "16:00",
+      "timeHour": 16,
+      "timeMinute": 0,
+      "theme": "gold",
+      "icon": "✨",
+      "active": true,
+      "mandatoryAttendance": true,
+      "mandatoryMessage": "Todos os acólitos e coroinhas devem comparecer à Missa de Corpus Christi, mesmo que não estejam designados para uma função específica durante a celebração.",
+      "procissao": true,
+      "roles": {
+        "defined": [
+          {
+            "role": "Naveta",
+            "participantId": 12,
+            "participantName": "Renata Fonseca Gomes",
+            "type": "coroinha"
+          },
+          {
+            "role": "Turíbulo",
+            "participantId": 5,
+            "participantName": "Fabio Monteiro Dias",
+            "type": "acolito"
+          }
+        ],
+        "tbd": [
+          "Cruz Processional",
+          "Velas",
+          "Livro",
+          "Credência",
+          "Campainha",
+          "Demais funções"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "_comment": "Configurações gerais do sistema. Altere os dados da paróquia conforme necessário.",
+  "_schema": {
+    "siteName": "Nome do site",
+    "paroquia": "Nome da paróquia",
+    "cidade":   "Cidade - UF",
+    "diocese":  "Nome da diocese",
+    "masses": "Array de missas fixas semanais: { id, day (0=Dom..6=Sáb), dayName, time (HH:MM), timeHour, timeMinute, label, shortLabel }. O campo id (ex: 'sab-17', 'dom-08', 'dom-10', 'dom-19') é referenciado em todo o restante do sistema (escalas, restrições de participantes etc.).",
+    "scheduleSettings": {
+      "participantsPerMass": "Total de participantes por missa. min/max definem a faixa aceitável; default é o total padrão (6 = 3 acólitos + 3 coroinhas); byMassId sobrepõe o default para missas específicas pelo id da missa (ex: dom-19 usa 4 em vez de 6).",
+      "minByType": "Quantidade mínima obrigatória por tipo (acolito/coroinha) em todas as missas que não têm sobreposição em minByMassId. Padrão atual: 3 acólitos + 3 coroinhas (sab-17, dom-08, dom-10).",
+      "minByMassId": "Sobreposição do mínimo por tipo para missas específicas, pelo id da missa. Ex: dom-19 atualmente precisa de apenas 1 acólito (Bruno) + 3 coroinhas, em vez dos 3+3 padrão.",
+      "fixedParticipants": "Participantes obrigatórios por missa, indexado pelo id da missa. Sempre incluídos antes do rodízio, desde que elegíveis. Os IDs numéricos na lista referem-se ao campo id de participants.json.",
+      "scheduleAheadWeeks": "Quantas semanas à frente o gerador de escalas deve manter preenchidas.",
+      "autoUpdateDaysBeforeEnd": "Quantos dias antes do fim da semana atual o sistema deve gerar a próxima escala automaticamente.",
+      "defaultMonthlyLimits": "Limite mensal global por missa, indexado pelo id da missa (null = sem limite). Aplicado a todos os participantes que não possuem limite individual (definido em participants.json em restrictions.monthly).",
+      "fairnessWeekLookback": "Quantas semanas passadas o algoritmo analisa para calcular a pontuação de equilíbrio (fairness) entre participantes.",
+      "requireMinPerType": "true = exige pelo menos um participante de cada tipo (acolito/coroinha) por missa | false = não exige separação acolito/coroinha"
+    },
+    "version": "Versão do schema de configuração"
+  },
+
+  "siteName": "Acólitos & Coroinhas",
+  "paroquia": "Paróquia Exemplo",
+  "cidade": "[Cidade - UF]",
+  "diocese": "[Nome da Diocese]",
+
+  "masses": [
+    {
+      "id": "sab-17",
+      "day": 6,
+      "dayName": "Sábado",
+      "time": "17:00",
+      "timeHour": 17,
+      "timeMinute": 0,
+      "label": "Sábado • 17h00",
+      "shortLabel": "Sáb 17h"
+    },
+    {
+      "id": "dom-08",
+      "day": 0,
+      "dayName": "Domingo",
+      "time": "08:00",
+      "timeHour": 8,
+      "timeMinute": 0,
+      "label": "Domingo • 08h00",
+      "shortLabel": "Dom 8h"
+    },
+    {
+      "id": "dom-10",
+      "day": 0,
+      "dayName": "Domingo",
+      "time": "10:00",
+      "timeHour": 10,
+      "timeMinute": 0,
+      "label": "Domingo • 10h00",
+      "shortLabel": "Dom 10h"
+    },
+    {
+      "id": "dom-19",
+      "day": 0,
+      "dayName": "Domingo",
+      "time": "19:00",
+      "timeHour": 19,
+      "timeMinute": 0,
+      "label": "Domingo • 19h00",
+      "shortLabel": "Dom 19h"
+    }
+  ],
+
+  "scheduleSettings": {
+
+    "participantsPerMass": {
+      "min": 4,
+      "max": 6,
+      "default": 6,
+      "byMassId": {
+        "dom-19": 4
+      }
+    },
+
+    "minByType": {
+      "acolito": 3,
+      "coroinha": 3
+    },
+
+    "minByMassId": {
+      "dom-19": { "acolito": 1, "coroinha": 3 }
+    },
+
+    "fixedParticipants": {
+      "dom-19": [1, 12]
+    },
+
+    "scheduleAheadWeeks": 4,
+    "autoUpdateDaysBeforeEnd": 7,
+
+    "defaultMonthlyLimits": {
+      "dom-19": null
+    },
+
+    "fairnessWeekLookback": 6,
+
+    "requireMinPerType": false
+  },
+
+  "version": "1.0.0"
+}

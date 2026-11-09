@@ -1,0 +1,59 @@
+{
+  "name": "Acólitos e Coroinhas",
+  "short_name": "Escalas A&C",
+  "description": "Portal oficial dos Acólitos e Coroinhas. Escalas, avisos e novidades em um só lugar.",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0b0b12",
+  "theme_color": "#e11d48",
+  "lang": "pt-BR",
+  "categories": ["religion", "productivity"],
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-maskable.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Ver Escalas",
+      "short_name": "Escalas",
+      "description": "Consultar escalas semanais das missas",
+      "url": "escalas.html",
+      "icons": [{ "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
+    },
+    {
+      "name": "Calendário",
+      "short_name": "Calendário",
+      "description": "Ver calendário de missas e celebrações",
+      "url": "calendario.html",
+      "icons": [{ "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
+    },
+    {
+      "name": "Avisos e Notícias",
+      "short_name": "Avisos",
+      "description": "Ver avisos, notícias e novidades",
+      "url": "noticias.html",
+      "icons": [{ "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "og-image.svg",
+      "sizes": "1200x630",
+      "type": "image/svg+xml",
+      "form_factor": "wide",
+      "label": "Portal de Escalas dos Acólitos e Coroinhas"
+    }
+  ]
+}

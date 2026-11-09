@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Calendário | Acólitos e Coroinhas</title>
+  <meta name="description" content="Calendário de missas e celebrações dos Acólitos e Coroinhas. Consulte datas, horários e participantes escalados." />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0b0b12" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Calendário | Acólitos e Coroinhas" />
+  <meta property="og:description" content="Calendário de missas e celebrações. Consulte datas, horários e participantes escalados." />
+  <meta property="og:image" content="og-image.svg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Acólitos e Coroinhas" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Calendário | Acólitos e Coroinhas" />
+  <meta name="twitter:description" content="Calendário de missas e celebrações dos Acólitos e Coroinhas." />
+  <meta name="twitter:image" content="og-image.svg" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="shortcut icon" href="favicon.svg" type="image/svg+xml" />
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="favicon.svg" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Escalas A&C" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/print.css" />
+</head>
+<body>
+
+  <div data-partial="navbar"></div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CABEÇALHO DA PÁGINA
+  ════════════════════════════════════════════════════════════ -->
+  <header class="page-header" role="banner">
+    <div class="container">
+      <div class="page-header-inner">
+        <div class="page-header-icon" aria-hidden="true">📅</div>
+        <div>
+          <h1>Calendário</h1>
+          <p>Missas, celebrações especiais e eventos do mês</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MISSAS ESPECIAIS EM DESTAQUE
+  ════════════════════════════════════════════════════════════ -->
+  <section class="section section-alt" aria-label="Próximas celebrações especiais">
+    <div class="container">
+      <div id="calSpecialMasses" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CALENDÁRIO MENSAL
+  ════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="heading-calendar">
+    <div class="container">
+
+      <!-- Navegação de mês -->
+      <div class="cal-nav" role="group" aria-label="Navegar entre meses">
+        <button class="btn btn-ghost btn-sm btn-icon" id="calPrev" aria-label="Mês anterior">←</button>
+        <span class="cal-month-label" id="calMonthLabel" aria-live="polite">Carregando…</span>
+        <button class="btn btn-ghost btn-sm btn-icon" id="calNext" aria-label="Próximo mês">→</button>
+        <button class="btn btn-ghost btn-sm" id="calToday" style="margin-left:8px;">Hoje</button>
+      </div>
+
+      <!-- Legenda de cores -->
+      <div class="cal-legend">
+        <span class="cal-legend-item"><span class="cal-dot cal-dot-sab-17"></span> Sáb 17h</span>
+        <span class="cal-legend-item"><span class="cal-dot cal-dot-dom-08"></span> Dom 8h</span>
+        <span class="cal-legend-item"><span class="cal-dot cal-dot-dom-10"></span> Dom 10h</span>
+        <span class="cal-legend-item"><span class="cal-dot cal-dot-dom-19"></span> Dom 19h</span>
+        <span class="cal-legend-item"><span class="cal-dot cal-dot-special"></span> Celebração especial</span>
+      </div>
+
+      <!-- Grade do calendário (injetada por JS) -->
+      <div class="cal-grid" id="calendarGrid" role="grid" aria-label="Calendário de missas e celebrações"></div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       LEGENDA DE STATUS
+  ════════════════════════════════════════════════════════════ -->
+  <section class="section section-alt" aria-label="Legenda">
+    <div class="container">
+      <h3 class="block-label">Como usar o calendário</h3>
+      <div style="display:flex;gap:var(--space-xl);flex-wrap:wrap;">
+        <div class="legend-row">
+          <span class="legend-dot"></span>
+          <span class="legend-row-text">Dia atual</span>
+        </div>
+        <div class="legend-row">
+          <span class="legend-swatch"></span>
+          <span class="legend-row-text">Dia com celebração (clicável)</span>
+        </div>
+        <div class="legend-row">
+          <span class="legend-row-text" style="color:var(--text-muted);">Dias passados em cinza</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div data-partial="footer"></div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MODAL — Detalhe do dia clicado
+  ════════════════════════════════════════════════════════════ -->
+  <div class="modal-overlay" id="calDayModal" role="dialog" aria-modal="true"
+       aria-labelledby="calModalDate" aria-describedby="calModalBody">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-header-content">
+          <div class="modal-eyebrow">
+            <span class="modal-eyebrow-dot" aria-hidden="true"></span>
+            <span>Celebrações do dia</span>
+          </div>
+          <h2 class="modal-title" id="calModalDate">—</h2>
+        </div>
+        <button class="modal-close-btn" id="calModalClose" aria-label="Fechar">✕</button>
+      </div>
+      <div class="modal-body" id="calModalBody"></div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary btn-sm" id="calModalCloseFooter">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SCRIPTS
+  ════════════════════════════════════════════════════════════ -->
+  <script type="module">
+    import { injectPartials } from './js/partials.js';
+    import { App } from './js/app.js';
+    import { AbsenceModal } from './js/shared/absence-modal.js';
+    import { buildMissaEspecialCard, getUpcomingMissasEspeciais } from './js/shared/mass-render.js';
+    import { Calendar } from './js/pages/calendar.js';
+
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('sw.js'));
+    }
+
+    await injectPartials();
+    await App.init();
+    AbsenceModal.init();
+    Calendar.init();
+
+    // Missas especiais em destaque
+    const specSection = document.getElementById('calSpecialMasses');
+    if (specSection) {
+      const cards = getUpcomingMissasEspeciais()
+        .map(m => buildMissaEspecialCard(m, { compact: false }))
+        .filter(Boolean)
+        .join('');
+      specSection.innerHTML = cards;
+      specSection.closest('section').style.display = cards ? '' : 'none';
+    }
+
+    const config = App.getConfig();
+    if (config?.paroquia) {
+      const el = document.getElementById('footerParoquia');
+      if (el) el.textContent = config.paroquia;
+    }
+  </script>
+
+</body>
+</html>

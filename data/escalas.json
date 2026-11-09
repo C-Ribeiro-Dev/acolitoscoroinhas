@@ -1,0 +1,89 @@
+{
+  "_comment": "Escalas semanais. Semanas com participants:[] serão preenchidas automaticamente pelo gerador ao abrir o site.",
+  "_schema": {
+    "weekId":      "Identificador único da semana, formato 'YYYY-Www' (ex: '2026-W23')",
+    "weekStart":   "Data de início da semana (YYYY-MM-DD)",
+    "weekEnd":     "Data de fim da semana (YYYY-MM-DD)",
+    "status":      "'past' | 'current' | 'upcoming' — gerenciado automaticamente pelo gerador de escalas; normalmente não é necessário editar isso manualmente",
+    "generatedAt": "Timestamp ISO de quando a escala foi gerada automaticamente, ou null se ainda não foi gerada",
+    "masses": "Array de missas da semana: { massId, date, participants (array de IDs de participants.json), observations }"
+  },
+
+  "schedules": [
+
+    {
+      "weekId":      "2026-W23",
+      "weekStart":   "2026-06-01",
+      "weekEnd":     "2026-06-07",
+      "status":      "current",
+      "generatedAt": null,
+      "masses": [
+        { "massId": "sab-17", "date": "2026-06-07", "participants": [], "observations": "" },
+        { "massId": "dom-08", "date": "2026-06-08", "participants": [], "observations": "" },
+        { "massId": "dom-10", "date": "2026-06-08", "participants": [], "observations": "" },
+        { "massId": "dom-19", "date": "2026-06-08", "participants": [], "observations": "" }
+      ]
+    },
+
+    {
+      "_comment": "W24 — Será gerada automaticamente pelo algoritmo. Participantes em branco.",
+      "weekId":    "2026-W24",
+      "weekStart": "2026-06-08",
+      "weekEnd":   "2026-06-14",
+      "status":    "upcoming",
+      "generatedAt": null,
+      "masses": [
+        { "massId": "sab-17", "date": "2026-06-13", "participants": [], "observations": "" },
+        { "massId": "dom-08", "date": "2026-06-14", "participants": [], "observations": "" },
+        { "massId": "dom-10", "date": "2026-06-14", "participants": [], "observations": "" },
+        { "massId": "dom-19", "date": "2026-06-14", "participants": [], "observations": "" }
+      ]
+    },
+
+    {
+      "_comment": "W25 — Será gerada automaticamente.",
+      "weekId":    "2026-W25",
+      "weekStart": "2026-06-15",
+      "weekEnd":   "2026-06-21",
+      "status":    "upcoming",
+      "generatedAt": null,
+      "masses": [
+        { "massId": "sab-17", "date": "2026-06-20", "participants": [], "observations": "" },
+        { "massId": "dom-08", "date": "2026-06-21", "participants": [], "observations": "" },
+        { "massId": "dom-10", "date": "2026-06-21", "participants": [], "observations": "" },
+        { "massId": "dom-19", "date": "2026-06-21", "participants": [], "observations": "" }
+      ]
+    },
+
+    {
+      "_comment": "W26 — Será gerada automaticamente.",
+      "weekId":    "2026-W26",
+      "weekStart": "2026-06-22",
+      "weekEnd":   "2026-06-28",
+      "status":    "upcoming",
+      "generatedAt": null,
+      "masses": [
+        { "massId": "sab-17", "date": "2026-06-27", "participants": [], "observations": "" },
+        { "massId": "dom-08", "date": "2026-06-28", "participants": [], "observations": "" },
+        { "massId": "dom-10", "date": "2026-06-28", "participants": [], "observations": "" },
+        { "massId": "dom-19", "date": "2026-06-28", "participants": [], "observations": "" }
+      ]
+    },
+
+    {
+      "_comment": "W27 — Será gerada automaticamente.",
+      "weekId":    "2026-W27",
+      "weekStart": "2026-06-29",
+      "weekEnd":   "2026-07-05",
+      "status":    "upcoming",
+      "generatedAt": null,
+      "masses": [
+        { "massId": "sab-17", "date": "2026-07-04", "participants": [], "observations": "" },
+        { "massId": "dom-08", "date": "2026-07-05", "participants": [], "observations": "" },
+        { "massId": "dom-10", "date": "2026-07-05", "participants": [], "observations": "" },
+        { "massId": "dom-19", "date": "2026-07-05", "participants": [], "observations": "" }
+      ]
+    }
+
+  ]
+}

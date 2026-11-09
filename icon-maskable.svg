@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <!-- Fundo sólido (safe zone para maskable) -->
+  <rect width="512" height="512" fill="#0b0b12"/>
+  <!-- Cruz latina centralizada com proporções adequadas para safe zone -->
+  <rect x="220" y="90" width="72" height="300" rx="20" fill="#f59e0b"/>
+  <rect x="120" y="165" width="272" height="72" rx="20" fill="#f59e0b"/>
+  <!-- Anel decorativo -->
+  <circle cx="256" cy="256" r="228" stroke="#8b5cf6" stroke-width="18" fill="none"/>
+</svg>

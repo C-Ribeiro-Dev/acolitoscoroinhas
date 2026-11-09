@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Acólitos e Coroinhas | Escalas e Avisos</title>
+  <meta name="description" content="Portal oficial dos Acólitos e Coroinhas. Consulte escalas, avisos, notícias e informações sobre as celebrações." />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0b0b12" />
+
+  <!-- Open Graph (WhatsApp, Facebook, Telegram, Discord...) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Acólitos e Coroinhas | Escalas e Avisos" />
+  <meta property="og:description" content="Escalas, avisos e novidades em um só lugar. Portal oficial dos Acólitos e Coroinhas." />
+  <meta property="og:image" content="og-image.svg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Acólitos e Coroinhas" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Acólitos e Coroinhas | Escalas e Avisos" />
+  <meta name="twitter:description" content="Escalas, avisos e novidades em um só lugar." />
+  <meta name="twitter:image" content="og-image.svg" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="shortcut icon" href="favicon.svg" type="image/svg+xml" />
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="favicon.svg" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Escalas A&C" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/print.css" />
+</head>
+<body>
+
+  <div data-partial="navbar"></div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       HERO — Identidade, contador e prévia da escala
+  ════════════════════════════════════════════════════════════ -->
+  <section class="hero" aria-label="Início — Acólitos e Coroinhas">
+
+    <!-- Fundo decorativo: grade + orbs -->
+    <div class="hero-bg" aria-hidden="true">
+      <div class="hero-grid"></div>
+      <div class="hero-orb hero-orb-purple"></div>
+      <div class="hero-orb hero-orb-gold"></div>
+    </div>
+
+    <div class="container">
+      <div class="hero-content animate-fade-in-up">
+
+        <!-- Eyebrow badge -->
+        <div class="hero-badge">
+          <span class="hero-badge-dot" aria-hidden="true"></span>
+          Sistema de Escalas Litúrgicas
+        </div>
+
+        <!-- Título -->
+        <h1 class="hero-title">
+          Acólitos <span class="hero-title-amp">&amp;</span><br>
+          <span class="hero-title-gradient">Coroinhas</span>
+        </h1>
+
+        <!-- Subtítulo -->
+        <p class="hero-subtitle">
+          Organize e acompanhe as escalas semanais do seu grupo litúrgico com facilidade.
+        </p>
+
+        <!-- Label da próxima missa -->
+        <p class="hero-next-mass" id="heroNextMass" aria-live="polite">
+          Calculando próxima missa…
+        </p>
+
+        <!-- Contador regressivo -->
+        <div class="countdown" id="countdown" role="timer" aria-live="polite" aria-label="Tempo para a próxima missa">
+          <div class="countdown-item">
+            <div class="countdown-card">
+              <span class="countdown-value" id="countdown-days">00</span>
+            </div>
+            <span class="countdown-label">Dias</span>
+          </div>
+          <span class="countdown-sep" aria-hidden="true">:</span>
+          <div class="countdown-item">
+            <div class="countdown-card">
+              <span class="countdown-value" id="countdown-hours">00</span>
+            </div>
+            <span class="countdown-label">Horas</span>
+          </div>
+          <span class="countdown-sep" aria-hidden="true">:</span>
+          <div class="countdown-item">
+            <div class="countdown-card">
+              <span class="countdown-value" id="countdown-minutes">00</span>
+            </div>
+            <span class="countdown-label">Min</span>
+          </div>
+          <span class="countdown-sep" aria-hidden="true">:</span>
+          <div class="countdown-item">
+            <div class="countdown-card">
+              <span class="countdown-value" id="countdown-seconds">00</span>
+            </div>
+            <span class="countdown-label">Seg</span>
+          </div>
+        </div>
+
+        <!-- Prévia da próxima escala (preenchida por JS) -->
+        <div id="heroSchedulePreview" class="hero-schedule-preview" aria-live="polite">
+          <div class="skeleton" style="height:76px;border-radius:12px;"></div>
+        </div>
+
+        <!-- Botões CTA -->
+        <div class="hero-ctas">
+          <a href="escalas.html" class="btn btn-primary">
+            <span aria-hidden="true">📋</span> Ver Escalas Completas
+          </a>
+          <a href="noticias.html" class="btn btn-ghost">
+            <span aria-hidden="true">🔔</span> Avisos &amp; Notícias
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ESCALA DA SEMANA (logo abaixo do contador regressivo)
+  ════════════════════════════════════════════════════════════ -->
+  <section class="section home-schedule-section" aria-labelledby="heading-home-escala">
+    <div class="container">
+
+      <!-- Missas especiais (Corpus Christi, etc.) — injetado por JS -->
+      <div id="homeSpecialMasses" aria-live="polite"></div>
+
+      <div class="section-header">
+        <h2 class="section-title" id="heading-home-escala">
+          <span aria-hidden="true">📋</span> Escala da Semana
+        </h2>
+        <a href="escalas.html" class="btn btn-secondary btn-sm">Ver todas →</a>
+      </div>
+      <div id="homeScheduleSection" aria-live="polite">
+        <div class="skeleton" style="height:220px;border-radius:16px;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ESTATÍSTICAS RÁPIDAS
+  ════════════════════════════════════════════════════════════ -->
+  <section class="stats-section" aria-label="Estatísticas">
+    <div class="container">
+      <div class="stats-grid" id="statsGrid">
+
+        <div class="stat-card stat-card-clickable" data-stat="participants"
+             role="button" tabindex="0" aria-label="Ver lista de participantes ativos">
+          <div class="stat-icon" aria-hidden="true">👥</div>
+          <div class="stat-info">
+            <span class="stat-value" id="statParticipants">—</span>
+            <span class="stat-label">Participantes Ativos</span>
+          </div>
+          <span class="stat-chevron" aria-hidden="true">›</span>
+        </div>
+
+        <div class="stat-card stat-card-clickable" data-stat="masses"
+             role="button" tabindex="0" aria-label="Ver missas da semana">
+          <div class="stat-icon" aria-hidden="true">⛪</div>
+          <div class="stat-info">
+            <span class="stat-value">4</span>
+            <span class="stat-label">Missas por Semana</span>
+          </div>
+          <span class="stat-chevron" aria-hidden="true">›</span>
+        </div>
+
+        <div class="stat-card stat-card-clickable" data-stat="weeks"
+             role="button" tabindex="0" aria-label="Ver semanas escaladas">
+          <div class="stat-icon" aria-hidden="true">📋</div>
+          <div class="stat-info">
+            <span class="stat-value" id="statScheduledWeeks">—</span>
+            <span class="stat-label">Semanas Escaladas</span>
+          </div>
+          <span class="stat-chevron" aria-hidden="true">›</span>
+        </div>
+
+        <div class="stat-card stat-card-clickable" data-stat="avisos"
+             role="button" tabindex="0" aria-label="Ver avisos ativos">
+          <div class="stat-icon" aria-hidden="true">🔔</div>
+          <div class="stat-info">
+            <span class="stat-value" id="statAnnouncements">—</span>
+            <span class="stat-label">Avisos Ativos</span>
+          </div>
+          <span class="stat-chevron" aria-hidden="true">›</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       PRÓXIMAS ESCALAS
+  ════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="heading-escalas">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" id="heading-escalas">
+          <span aria-hidden="true">📅</span> Próximas Escalas
+        </h2>
+        <a href="escalas.html" class="btn btn-secondary btn-sm">Ver todas →</a>
+      </div>
+
+      <!-- Cards gerados via JS -->
+      <div class="schedules-grid" id="upcomingSchedules" aria-live="polite">
+        <!-- Skeleton placeholder enquanto carrega -->
+        <div class="skeleton" style="height:260px;border-radius:16px;"></div>
+        <div class="skeleton" style="height:260px;border-radius:16px;"></div>
+        <div class="skeleton" style="height:260px;border-radius:16px;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       AVISOS IMPORTANTES
+  ════════════════════════════════════════════════════════════ -->
+  <section class="section section-alt" aria-labelledby="heading-avisos">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" id="heading-avisos">
+          <span class="badge badge-warning" aria-hidden="true">!</span>
+          Avisos Importantes
+        </h2>
+        <a href="noticias.html" class="btn btn-secondary btn-sm">Ver todos →</a>
+      </div>
+
+      <div class="announcements-list" id="pinnedAnnouncements" aria-live="polite">
+        <div class="skeleton" style="height:100px;border-radius:16px;"></div>
+        <div class="skeleton" style="height:100px;border-radius:16px;margin-top:12px;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       NOTÍCIAS E NOVIDADES
+  ════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="heading-noticias">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" id="heading-noticias">
+          <span aria-hidden="true">📰</span> Notícias &amp; Novidades
+        </h2>
+        <a href="noticias.html" class="btn btn-secondary btn-sm">Ver mais →</a>
+      </div>
+
+      <div id="latestNews" aria-live="polite">
+        <!-- Cards gerados via JS -->
+      </div>
+    </div>
+  </section>
+
+  <div data-partial="footer"></div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MODAL DE ESTATÍSTICAS
+  ════════════════════════════════════════════════════════════ -->
+  <div class="modal-overlay" id="statModal" role="dialog" aria-modal="true"
+       aria-labelledby="statModalTitle" aria-describedby="statModalBody">
+    <div class="modal-box modal-box-stat">
+      <div class="modal-header">
+        <div class="modal-header-content">
+          <div class="modal-eyebrow">
+            <span class="modal-eyebrow-dot" aria-hidden="true"></span>
+            <span id="statModalEyebrow">Detalhes</span>
+          </div>
+          <h2 class="modal-title" id="statModalTitle">—</h2>
+        </div>
+        <button class="modal-close-btn" id="statModalClose" aria-label="Fechar">✕</button>
+      </div>
+      <div class="modal-body" id="statModalBody" style="padding-top:0;"></div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary btn-sm" id="statModalCloseFooter">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MODAL DE AVISO
+  ════════════════════════════════════════════════════════════ -->
+  <div class="modal-overlay" id="announcementModal" role="dialog" aria-modal="true"
+       aria-labelledby="modalTitle" aria-describedby="modalBody">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-header-content">
+          <div class="modal-eyebrow">
+            <span class="modal-eyebrow-dot" aria-hidden="true"></span>
+            <span id="modalEyebrow">Aviso</span>
+          </div>
+          <h2 class="modal-title" id="modalTitle">—</h2>
+        </div>
+        <button class="modal-close-btn" id="modalCloseBtn" aria-label="Fechar">✕</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-footer">
+        <div class="modal-meta">
+          <span id="modalDate"></span>
+          <span id="modalAuthor"></span>
+        </div>
+        <button class="btn btn-secondary btn-sm" id="modalCloseBtnFooter">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SCRIPTS
+  ════════════════════════════════════════════════════════════ -->
+  <script type="module">
+    import { injectPartials } from './js/partials.js';
+    import { App } from './js/app.js';
+    import { Countdown } from './js/countdown.js';
+    import { AbsenceModal } from './js/shared/absence-modal.js';
+    import { Home } from './js/pages/home.js';
+
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('sw.js'));
+    }
+
+    await injectPartials();
+    await App.init();
+    AbsenceModal.init();
+    Countdown.start();
+    await Home.init();
+
+    const config = App.getConfig();
+    if (config?.paroquia) {
+      const el = document.getElementById('footerParoquia');
+      if (el) el.textContent = config.paroquia;
+    }
+  </script>
+
+</body>
+</html>

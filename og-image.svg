@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <!-- Fundo escuro -->
+  <rect width="1200" height="630" fill="#0b0b12"/>
+
+  <!-- Gradiente decorativo lateral esquerdo -->
+  <rect width="6" height="630" fill="#8b5cf6" opacity="0.8"/>
+  <!-- Gradiente decorativo lateral direito -->
+  <rect x="1194" width="6" height="630" fill="#f59e0b" opacity="0.8"/>
+
+  <!-- Linhas decorativas horizontais (topo e base) -->
+  <rect y="0" width="1200" height="4" fill="#8b5cf6" opacity="0.5"/>
+  <rect y="626" width="1200" height="4" fill="#f59e0b" opacity="0.5"/>
+
+  <!-- Cruz litúrgica grande à esquerda (elemento visual) -->
+  <g opacity="0.08">
+    <rect x="110" y="130" width="60" height="380" rx="10" fill="#f59e0b"/>
+    <rect x="30" y="210" width="220" height="60" rx="10" fill="#f59e0b"/>
+  </g>
+
+  <!-- Cruz litúrgica pequena decorativa à direita -->
+  <g opacity="0.06">
+    <rect x="1010" y="150" width="40" height="280" rx="8" fill="#8b5cf6"/>
+    <rect x="950" y="220" width="160" height="40" rx="8" fill="#8b5cf6"/>
+  </g>
+
+  <!-- Ícone central: Cruz dourada -->
+  <g transform="translate(160, 200)">
+    <rect x="30" y="0" width="20" height="90" rx="4" fill="#f59e0b"/>
+    <rect x="0" y="20" width="80" height="20" rx="4" fill="#f59e0b"/>
+    <!-- Círculo ao redor -->
+    <circle cx="40" cy="45" r="58" stroke="#8b5cf6" stroke-width="3" fill="none" opacity="0.6"/>
+  </g>
+
+  <!-- Texto principal: Nome do grupo -->
+  <text x="290" y="240"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="62"
+    font-weight="700"
+    fill="#f5f5f5"
+    letter-spacing="-1">Acólitos &amp; Coroinhas</text>
+
+  <!-- Linha separadora -->
+  <rect x="290" y="265" width="680" height="3" rx="1.5" fill="#8b5cf6" opacity="0.7"/>
+
+  <!-- Subtítulo / slogan -->
+  <text x="290" y="320"
+    font-family="'Segoe UI', Arial, sans-serif"
+    font-size="28"
+    font-weight="400"
+    fill="#a0a0c0"
+    letter-spacing="0.5">Escalas, avisos e novidades em um só lugar</text>
+
+  <!-- Badge litúrgico -->
+  <rect x="290" y="375" width="340" height="52" rx="26" fill="#18182c" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="460" y="407"
+    font-family="'Segoe UI', Arial, sans-serif"
+    font-size="18"
+    font-weight="500"
+    fill="#8b5cf6"
+    text-anchor="middle"
+    letter-spacing="1">✦  Portal Litúrgico Oficial  ✦</text>
+
+  <!-- URL / domínio discreto (canto inferior direito) -->
+  <text x="1170" y="598"
+    font-family="'Segoe UI', Arial, sans-serif"
+    font-size="16"
+    fill="#444466"
+    text-anchor="end">acolitoscoroinhas</text>
+</svg>

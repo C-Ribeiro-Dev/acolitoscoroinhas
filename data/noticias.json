@@ -1,0 +1,63 @@
+{
+  "_comment": "Notícias, avisos e novidades. Edite para adicionar, editar ou remover conteúdo.",
+  "_schema": {
+    "id":          "Número único identificador",
+    "type":        "'aviso' | 'noticia' | 'novidade'",
+    "priority":    "'high' (urgente) | 'normal' | 'low' (informativo)",
+    "pinned":      "true = aparece fixado no topo (apenas avisos importantes)",
+    "featured":    "true = destaque especial no card (opcional)",
+    "badge":       "Rótulo curto e personalizado exibido no card (opcional, ex: '🎨 Evento Especial')",
+    "title":       "Título",
+    "content":     "Texto resumido exibido no card",
+    "contentFull": "Versão completa/mais longa do texto, exibida no modal de detalhes (opcional — se ausente, usa content como fallback)",
+    "date":        "Data de publicação (YYYY-MM-DD)",
+    "author":      "Autor ou setor responsável",
+    "imageUrl":    "URL de imagem (opcional — deixe vazio para omitir)"
+  },
+
+  "items": [
+
+    {
+      "id": 14,
+      "type": "aviso",
+      "priority": "high",
+      "pinned": true,
+      "featured": true,
+      "badge": "🎨 Evento Especial",
+      "title": "🎨 Tapete de Corpus Christi",
+      "content": "Estamos nos preparando para a celebração de Corpus Christi e precisamos da ajuda da comunidade.\n\nVocê pode colaborar de duas formas:\n\n• Doando pó de serragem.\n• Participando como voluntário na montagem do tapete.",
+      "contentFull": "🎨 Tapete de Corpus Christi\n\nEstamos nos preparando para a celebração de Corpus Christi e precisamos da ajuda de todos.\n\nVocê pode participar de duas formas:\n\n• Doando pó de serragem.\n• Sendo voluntário na montagem do tapete.\n\nToda ajuda será muito bem-vinda para que possamos preparar uma bela demonstração de fé para nossa comunidade.\n\nContamos com sua participação!\n\n📍 Paróquia Exemplo\nRua Exemplo, 100 - Bairro Exemplo",
+      "date": "2026-06-01",
+      "author": "Coordenação",
+      "imageUrl": ""
+    },
+
+    {
+      "id": 13,
+      "type": "novidade",
+      "priority": "high",
+      "pinned": false,
+      "featured": true,
+      "badge": "Nova Funcionalidade",
+      "title": "🚀 Geração Automática de Escalas",
+      "content": "Agora as escalas de acólitos e coroinhas passam a ser geradas automaticamente pelo sistema, garantindo uma distribuição mais equilibrada entre os participantes e facilitando a organização das celebrações.",
+      "contentFull": "A coordenação dos acólitos e coroinhas agora conta com uma nova funcionalidade: a geração automática de escalas.\n\nO sistema foi desenvolvido para organizar as escalas de forma mais prática e eficiente, respeitando as regras definidas para cada participante e distribuindo as funções de maneira equilibrada.\n\nAlém disso, todas as novidades, comunicados, avisos importantes e informações relacionadas aos acólitos e coroinhas serão divulgadas através deste portal.\n\nDessa forma, este site passa a ser o principal canal de comunicação e consulta de escalas do grupo.\n\nPedimos que todos acompanhem regularmente as atualizações para ficarem informados sobre:\n• Escalas de serviço.\n• Missas especiais.\n• Avisos da coordenação.\n• Eventos da paróquia.\n• Alterações de horários.\n• Novas funcionalidades do sistema.",
+      "date": "2026-06-01",
+      "author": "Equipe Técnica",
+      "imageUrl": ""
+    },
+
+    {
+      "id": 7,
+      "type": "aviso",
+      "priority": "high",
+      "pinned": true,
+      "title": "Corpus Christi — 04/06 às 16h",
+      "content": "Todos os acólitos e coroinhas deverão comparecer à celebração, mesmo que não estejam designados para uma função específica.\n\nFunções definidas:\n• Renata Fonseca Gomes (Coroinha) — Naveta.\n• Fabio Monteiro Dias (Acólita) — Turíbulo.\n\nAs demais funções serão definidas posteriormente.\n\nApós a Santa Missa haverá a tradicional Procissão de Corpus Christi, portanto todos deverão permanecer presentes até o encerramento das atividades.\n\nContamos com a participação de todos.",
+      "date": "2026-06-01",
+      "author": "Coordenação",
+      "imageUrl": ""
+    }
+
+  ]
+}

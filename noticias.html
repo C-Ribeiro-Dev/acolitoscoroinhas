@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Notícias e Avisos | Acólitos e Coroinhas</title>
+  <meta name="description" content="Portal oficial dos Acólitos e Coroinhas. Consulte escalas, avisos, notícias e informações sobre as celebrações." />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0b0b12" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Notícias e Avisos | Acólitos e Coroinhas" />
+  <meta property="og:description" content="Escalas, avisos e novidades em um só lugar. Portal oficial dos Acólitos e Coroinhas." />
+  <meta property="og:image" content="og-image.svg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Acólitos e Coroinhas" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Notícias e Avisos | Acólitos e Coroinhas" />
+  <meta name="twitter:description" content="Escalas, avisos e novidades em um só lugar." />
+  <meta name="twitter:image" content="og-image.svg" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="shortcut icon" href="favicon.svg" type="image/svg+xml" />
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="favicon.svg" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Escalas A&C" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/print.css" />
+</head>
+<body>
+
+  <div data-partial="navbar"></div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CABEÇALHO DA PÁGINA
+  ════════════════════════════════════════════════════════════ -->
+  <header class="page-header" role="banner">
+    <div class="container">
+      <div class="page-header-inner">
+        <div class="page-header-icon" aria-hidden="true">📰</div>
+        <div>
+          <h1>Notícias &amp; Avisos</h1>
+          <p>Fique por dentro de tudo que acontece no grupo</p>
+        </div>
+      </div>
+
+      <!-- Mini stats -->
+      <div style="display:flex;gap:var(--space-md);margin-top:var(--space-lg);flex-wrap:wrap;">
+        <div class="info-chip">
+          <span class="info-chip-icon">📌</span>
+          <span>Total: <strong id="statsTotal">—</strong></span>
+        </div>
+        <div class="info-chip">
+          <span class="info-chip-icon">📌</span>
+          <span>Fixados: <strong id="statsPinned">—</strong></span>
+        </div>
+        <div class="info-chip is-urgent">
+          <span class="info-chip-icon">🚨</span>
+          <span>Urgentes: <strong id="statsUrgente">—</strong></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       AVISOS FIXADOS
+  ════════════════════════════════════════════════════════════ -->
+  <section id="pinnedSection" class="section section-alt" aria-labelledby="heading-pinned">
+    <div class="container">
+      <div class="section-header" style="margin-bottom:var(--space-lg);">
+        <h2 class="section-title" id="heading-pinned">
+          <span aria-hidden="true">📌</span> Avisos Fixados
+        </h2>
+        <span class="badge badge-gold">Importante</span>
+      </div>
+
+      <div class="announcements-list" id="pinnedList" aria-live="polite">
+        <!-- Renderizado via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       TODOS OS CONTEÚDOS
+  ════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="heading-all-news">
+    <div class="container">
+
+      <div class="section-header" style="margin-bottom:var(--space-lg);">
+        <h2 class="section-title" id="heading-all-news">
+          <span aria-hidden="true">📋</span> Todos os Conteúdos
+        </h2>
+      </div>
+
+      <!-- Filtros por tipo -->
+      <div class="filter-tabs" role="group" aria-label="Filtrar por tipo" style="margin-bottom:var(--space-xl);">
+        <button class="filter-tab active" data-news-filter="all"      aria-pressed="true">
+          Todos<span id="countAll"></span>
+        </button>
+        <button class="filter-tab"        data-news-filter="aviso"    aria-pressed="false">
+          Avisos<span id="countAvisos"></span>
+        </button>
+        <button class="filter-tab"        data-news-filter="noticia"  aria-pressed="false">
+          Notícias<span id="countNoticias"></span>
+        </button>
+        <button class="filter-tab"        data-news-filter="novidade" aria-pressed="false">
+          Novidades<span id="countNovidades"></span>
+        </button>
+      </div>
+
+      <!-- Grade de cards -->
+      <div class="news-grid" id="newsContainer" aria-live="polite">
+        <!-- Skeletons enquanto carrega -->
+        <div class="skeleton" style="height:220px;border-radius:16px;"></div>
+        <div class="skeleton" style="height:220px;border-radius:16px;"></div>
+        <div class="skeleton" style="height:220px;border-radius:16px;"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       COMO ADICIONAR CONTEÚDO (informativo)
+  ════════════════════════════════════════════════════════════ -->
+  <section class="section section-alt" aria-labelledby="heading-how-to">
+    <div class="container">
+      <div class="help-block">
+        <h2 class="section-title" id="heading-how-to" style="justify-content:center;margin-bottom:var(--space-md);">
+          Como Adicionar Conteúdo
+        </h2>
+        <p class="help-block-text">
+          Edite o arquivo <code>data/noticias.json</code>
+          para adicionar, editar ou remover avisos e notícias.
+          O conteúdo será atualizado automaticamente ao recarregar a página.
+        </p>
+        <div class="help-card-grid">
+          <div class="help-card">
+            <div class="help-card-icon">📢</div>
+            <div class="help-card-label">Avisos</div>
+            <div class="help-card-meta">type: "aviso"</div>
+          </div>
+          <div class="help-card">
+            <div class="help-card-icon">📰</div>
+            <div class="help-card-label">Notícias</div>
+            <div class="help-card-meta">type: "noticia"</div>
+          </div>
+          <div class="help-card">
+            <div class="help-card-icon">✨</div>
+            <div class="help-card-label">Novidades</div>
+            <div class="help-card-meta">type: "novidade"</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div data-partial="footer"></div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MODAL — Conteúdo completo do aviso / notícia
+  ════════════════════════════════════════════════════════════ -->
+  <div class="modal-overlay" id="noticeModal" role="dialog" aria-modal="true"
+       aria-labelledby="noticeModalTitle" aria-describedby="noticeModalBody">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-header-content">
+          <div class="modal-eyebrow">
+            <span class="modal-eyebrow-dot" aria-hidden="true"></span>
+            <span id="noticeModalEyebrow">Aviso</span>
+          </div>
+          <h2 class="modal-title" id="noticeModalTitle">—</h2>
+        </div>
+        <button class="modal-close-btn" id="noticeModalClose" aria-label="Fechar">✕</button>
+      </div>
+      <div class="modal-body" id="noticeModalBody"></div>
+      <div class="modal-footer">
+        <div class="modal-meta">
+          <span id="noticeModalDate"></span>
+          <span id="noticeModalAuthor"></span>
+        </div>
+        <button class="btn btn-secondary btn-sm" id="noticeModalCloseFooter">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SCRIPTS
+  ════════════════════════════════════════════════════════════ -->
+  <script type="module">
+    import { injectPartials } from './js/partials.js';
+    import { App } from './js/app.js';
+    import { Noticias } from './js/pages/noticias.js';
+
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('sw.js'));
+    }
+
+    await injectPartials();
+    await App.init();
+    await Noticias.init();
+
+    const config = App.getConfig();
+    if (config?.paroquia) {
+      const el = document.getElementById('footerParoquia');
+      if (el) el.textContent = config.paroquia;
+    }
+  </script>
+
+</body>
+</html>

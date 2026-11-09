@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Fundo circular escuro -->
+  <circle cx="32" cy="32" r="32" fill="#0b0b12"/>
+
+  <!-- Cruz litúrgica latina -->
+  <!-- Haste vertical -->
+  <rect x="27.5" y="9" width="9" height="42" rx="2.5" fill="#f59e0b"/>
+  <!-- Haste horizontal -->
+  <rect x="14" y="19" width="36" height="9" rx="2.5" fill="#f59e0b"/>
+
+  <!-- Borda circular (anel litúrgico dourado) -->
+  <circle cx="32" cy="32" r="29.5" stroke="#8b5cf6" stroke-width="2" fill="none"/>
+</svg>

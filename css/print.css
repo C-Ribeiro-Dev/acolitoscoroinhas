@@ -1,0 +1,180 @@
+/**
+ * print.css — Estilos para impressão / exportação PDF
+ * Usado via window.print() no botão "Imprimir / PDF"
+ */
+
+@media print {
+  /* Oculta tudo exceto o conteúdo de impressão */
+  body > *:not(#printArea) { display: none !important; }
+  #printArea { display: block !important; }
+
+  /* Reset para impressão */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  body {
+    background: #fff !important;
+    color: #111 !important;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 11pt;
+    margin: 0;
+    padding: 0;
+  }
+
+  #printArea {
+    width: 100%;
+    max-width: 100%;
+    padding: 20mm 15mm;
+    background: #fff !important;
+    color: #111 !important;
+  }
+
+  /* Cabeçalho do documento impresso */
+  .print-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 2px solid #9f1239;
+    padding-bottom: 10pt;
+    margin-bottom: 16pt;
+  }
+
+  .print-title {
+    font-size: 18pt;
+    font-weight: 700;
+    color: #111;
+    margin: 0;
+  }
+
+  .print-subtitle {
+    font-size: 10pt;
+    color: #555;
+    margin: 3pt 0 0;
+  }
+
+  .print-logo {
+    font-size: 11pt;
+    color: #9f1239;
+    font-weight: 600;
+    text-align: right;
+  }
+
+  .print-logo-cross {
+    font-size: 20pt;
+    display: block;
+    color: #d97706;
+  }
+
+  /* Seções */
+  .print-section {
+    margin-bottom: 14pt;
+    break-inside: avoid;
+  }
+
+  .print-section-title {
+    font-size: 10pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #9f1239;
+    margin-bottom: 8pt;
+    padding-bottom: 3pt;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  /* Tabela de missas */
+  .print-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9.5pt;
+  }
+
+  .print-table th {
+    background: #fff1f2;
+    color: #9f1239;
+    font-weight: 700;
+    padding: 5pt 8pt;
+    text-align: left;
+    border: 1px solid #ddd;
+    font-size: 8.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .print-table td {
+    padding: 5pt 8pt;
+    border: 1px solid #e5e5e5;
+    vertical-align: top;
+  }
+
+  .print-table tr:nth-child(even) td {
+    background: #fafafa;
+  }
+
+  .print-mass-badge {
+    display: inline-block;
+    padding: 1pt 5pt;
+    border-radius: 3pt;
+    font-size: 8.5pt;
+    font-weight: 700;
+  }
+
+  .print-mass-badge.sab-17  { background: #fef3c7; color: #92400e; }
+  .print-mass-badge.dom-08  { background: #dbeafe; color: #1e40af; }
+  .print-mass-badge.dom-10  { background: #d1fae5; color: #065f46; }
+  .print-mass-badge.dom-19  { background: #ffedd5; color: #9a3412; }
+  .print-mass-badge.special { background: #ede9fe; color: #5b21b6; }
+
+  .print-chip {
+    display: inline-block;
+    padding: 1pt 5pt;
+    border-radius: 3pt;
+    font-size: 8pt;
+    margin: 1pt;
+  }
+
+  .print-chip.acolito  { background: #fef3c7; color: #92400e; }
+  .print-chip.coroinha { background: #ede9fe; color: #5b21b6; }
+
+  /* Aviso obrigatório */
+  .print-notice {
+    border: 1px solid #fbbf24;
+    border-left: 4px solid #f59e0b;
+    background: #fffbeb;
+    padding: 7pt 10pt;
+    font-size: 9pt;
+    color: #78350f;
+    border-radius: 3pt;
+    margin-top: 10pt;
+    break-inside: avoid;
+  }
+
+  /* Rodapé da impressão */
+  .print-footer {
+    margin-top: 20pt;
+    padding-top: 8pt;
+    border-top: 1px solid #ddd;
+    font-size: 8pt;
+    color: #999;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* Quebra de página entre semanas */
+  .print-page-break { page-break-before: always; }
+
+  @page {
+    margin: 15mm;
+    size: A4;
+  }
+}
+
+/* Área de impressão oculta no modo normal */
+#printArea {
+  display: none;
+}

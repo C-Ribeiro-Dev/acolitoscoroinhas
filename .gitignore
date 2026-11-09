@@ -1,0 +1,13 @@
+# SO
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+
+
+# Node (caso alguma ferramenta de dev seja usada sob demanda)
+node_modules/

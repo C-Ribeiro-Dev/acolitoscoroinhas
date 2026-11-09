@@ -1,0 +1,506 @@
+{
+  "_comment": "Participantes do grupo. Edite este arquivo para gerenciar acólitos e coroinhas.",
+  "_schema": {
+    "id": "Número único identificador (não altere após criado)",
+    "name": "Nome completo",
+    "nickname": "Apelido exibido nas escalas (opcional)",
+    "type": "'acolito' ou 'coroinha'",
+    "active": "true = ativo e escalável | false = afastado temporariamente",
+    "availability": {
+      "_comment": "Disponibilidade positiva (whitelist). Se massIds estiver vazio, o participante está disponível para TODAS as missas. Se tiver IDs, estará disponível SOMENTE para as missas listadas.",
+      "massIds": "Ex: ['sab-17','dom-08'] = serve apenas nessas duas missas"
+    },
+    "restrictions": {
+      "days": "Dias da semana bloqueados. 0=Dom, 1=Seg, 2=Ter, 3=Qua, 4=Qui, 5=Sex, 6=Sáb. Ex: [6] = não pode sábado",
+      "massIds": "Missas permanentemente bloqueadas. Ex: ['dom-19'] = nunca pode a missa de 19h",
+      "monthly": {
+        "_comment": "Número máximo de vezes por mês em uma missa específica. Regra configurável por participante.",
+        "dom-19": "Ex: 1 = pode servir na missa de 19h no máximo 1 vez por mês"
+      }
+    },
+    "joinDate": "Data de entrada no grupo (YYYY-MM-DD)",
+    "contact": "Telefone ou e-mail para contato (opcional)",
+    "observations": "Observações para o coordenador (opcional)"
+  },
+  "participants": [
+    {
+      "id": 1,
+      "name": "Bruno Carvalho Lima",
+      "nickname": "Bruno",
+      "type": "acolito",
+      "active": true,
+      "availability": {
+        "massIds": [
+          "dom-19"
+        ]
+      },
+      "restrictions": {
+        "days": [],
+        "massIds": [],
+        "monthly": {}
+      },
+      "joinDate": "2026-01-01",
+      "contact": "",
+      "observations": "Serve todo domingo às 19h"
+    },
+    {
+      "id": 2,
+      "name": "Carla Mendes Rocha",
+      "nickname": "Carla",
+      "type": "acolito",
+      "active": true,
+      "availability": {
+        "massIds": [
+          "dom-08",
+          "dom-10"
+        ]
+      },
+      "restrictions": {
+        "days": [],
+        "massIds": [],
+        "monthly": {
+          "dom-10": 1
+        }
+      },
+      "joinDate": "2026-01-01",
+      "contact": "",
+      "observations": "Fixa na missa de domingo às 8h; serve dom-10 no máximo 1x/mês"
+    },
+    {
+      "id": 3,
+      "name": "Diego Pires Nunes",
+      "nickname": "Diego",
+      "type": "acolito",
+      "active": true,
+      "availability": {
+        "massIds": []
+      },
+      "restrictions": {
+        "days": [],
+        "massIds": [],
+        "monthly": {}
+      },
+      "joinDate": "2026-01-01",
+      "contact": "",
+      "observations": ""
+    },
+    {
+      "id": 4,
+      "name": "Elisa Tavares Costa",
+      "nickname": "Elisa",
+      "type": "acolito",
+      "active": false,
+      "availability": {
+        "massIds": []
+      },
+      "restrictions": {
+        "days": [],
+        "massIds": [],
+        "monthly": {}
+      },
+      "joinDate": "2026-01-01",
+      "contact": "",
+      "observations": "removido temporariamente por motivos pessoais"
+    },
+    {
+      "id": 5,
+      "name": "Fabio Monteiro Dias",
+      "nickname": "Fabio",
+      "type": "acolito",
+      "active": true,
+      "availability": {
+        "massIds": [
+          "sab-17",
+          "dom-08"
+        ]
+      },
+      "restrictions": {
+        "days": [],
+        "massIds": [],
+        "monthly": {
+          "dom-08": 1
+        }
+      },
+      "joinDate": "2026-01-01",
+      "contact": "",
+      "observations": "Fixa na missa de sábado às 17h; serve dom-08 no máximo 1x/mês"
+    },
+    {
+      "id": 6,
+      "name": "Gabriela Freitas Souza",
+      "nickname": "Gabriela",
+      "type": "acolito",
+      "active": true,
+      "availability": {
+        "massIds": [
+          "dom-10",
+          "dom-08"
+        ]
+      },
+      "restrictions": {
+        "days": [],
+        "massIds": [],
+        "monthly": {
+          "dom-08": 1
+        }
+      },
+      "joinDate": "2026-01-01",
+      "contact": "",
+      "observations": "Fixa na missa de domingo às 10h; serve dom-08 no máximo 1x/mês"
+    },
+    {
+      "id": 7,
+      "name": "Hugo Barros Teixeira",
+      "nickname": "Hugo",
+      "type": "acolito",
+      "active": true,
+      "availability": {
+        "massIds": [
+          "dom-10",
+          "dom-08"
+        ]
+      },
+      "restrictions": {
+        "days": [],
+        "massIds": [],
+        "monthly": {
+          "dom-08": 1
+        }
+      },
+      "joinDate": "2026-01-01",
+      "contact": "",
+      "observations": "Fixa na missa de domingo às 10h; serve dom-08 no máximo 1x/mês"
+    },
+    {
+      "id": 23,
+      "name": "Isabela Campos Ramos",
+      "nickname": "Isabela",
+      "type": "acolito",
+      "active": true,
+      "availability": {
+        "massIds": []
+      },
+      "restrictions": {
+        "days": [],
+        "massIds": [],
+        "monthly": {}
+      },
+      "joinDate": "2026-06-01",
+      "contact": "",
+      "observations": ""
+    },
+    {
+      "id": 24,
+      "name": "Joao Vieira Prado",
+      "nickname": "Joao",
+      "type": "acolito",
+      "active": true,
+      "availability": {
+        "massIds": []
+      },
+      "restrictions": {
+        "days": [],
+        "massIds": [],
+        "monthly": {}
+      },
+      "joinDate": "2026-06-01",
+      "contact": "",
+      "observations": ""
+    },
+    {
+      "id": 25,
+      "name": "Hugo",
+      "nickname": "Hugo",
+      "type": "acolito",
+      "active": true,
+      "availability": {
+        "massIds": []
+      },
+      "restrictions": {
+        "days": [],
+        "massIds": [],
+        "monthly": {}
+      },
+      "joinDate": "2026-06-01",
+      "contact": "",
+      "observations": ""
+    },
+    {
+      "id": 22,
+      "name": "Lucas Moreira Pinto",
+      "nickname": "Lucas",
+      "type": "acolito",
+      "active": true,
+      "availability": {
+        "massIds": [
+          "dom-08",
+          "dom-10"
+        ]
+      },
+      "restrictions": {
+        "days": [],
+        "massIds": [],
+        "monthly": {
+          "dom-10": 1
+        }
+      },
+      "joinDate": "2026-06-01",
+      "contact": "",
+      "observations": "Fixo na missa de domingo às 8h; serve dom-10 no máximo 1x/mês"
+    },
+    {
+      "id": 8,
+      "name": "Marina Azevedo Cunha",
+      "nickname": "Marina",
+      "type": "coroinha",
+      "active": true,
+      "availability": {
+        "massIds": []
+      },
+      "restrictions": {
+        "days": [],
+        "massIds": [],
+        "monthly": {}
+      },
+      "joinDate": "2026-01-01",
+      "contact": "",
+      "observations": "Faltou a veste — aguardando regularização"
+    },
+    {
+      "id": 9,
+      "name": "Nelson Batista Farias",
+      "nickname": "Nelson",
+      "type": "coroinha",
+      "active": true,
+      "availability": {
+        "massIds": []
+      },
+      "restrictions": {
+        "days": [],
+        "massIds": [],
+        "monthly": {}
+      },
+      "joinDate": "2026-01-01",
+      "contact": "",
+      "observations": ""
+    },
+    {
+      "id": 10,
+      "name": "Olivia Siqueira Neto",
+      "nickname": "Olivia",
+      "type": "coroinha",
+      "active": true,
+      "availability": {
+        "massIds": []
+      },
+      "restrictions": {
+        "days": [],
+        "massIds": [],
+        "monthly": {}
+      },
+      "joinDate": "2026-01-01",
+      "contact": "",
+      "observations": ""
+    },
+    {
+      "id": 11,
+      "name": "Paulo Cardoso Melo",
+      "nickname": "Paulo",
+      "type": "coroinha",
+      "active": true,
+      "availability": {
+        "massIds": []
+      },
+      "restrictions": {
+        "days": [],
+        "massIds": [],
+        "monthly": {}
+      },
+      "joinDate": "2026-01-01",
+      "contact": "",
+      "observations": ""
+    },
+    {
+      "id": 12,
+      "name": "Renata Fonseca Gomes",
+      "nickname": "Renata",
+      "type": "coroinha",
+      "active": true,
+      "availability": {
+        "massIds": [
+          "dom-19"
+        ]
+      },
+      "restrictions": {
+        "days": [],
+        "massIds": [],
+        "monthly": {}
+      },
+      "joinDate": "2026-01-01",
+      "contact": "",
+      "observations": "Serve todo domingo às 19h"
+    },
+    {
+      "id": 13,
+      "name": "Samuel Nogueira Reis",
+      "nickname": "Samuel",
+      "type": "coroinha",
+      "active": true,
+      "availability": {
+        "massIds": []
+      },
+      "restrictions": {
+        "days": [],
+        "massIds": [],
+        "monthly": {}
+      },
+      "joinDate": "2026-01-01",
+      "contact": "",
+      "observations": ""
+    },
+    {
+      "id": 14,
+      "name": "Tatiana Correia Borges",
+      "nickname": "Tatiana",
+      "type": "coroinha",
+      "active": true,
+      "availability": {
+        "massIds": []
+      },
+      "restrictions": {
+        "days": [],
+        "massIds": [],
+        "monthly": {}
+      },
+      "joinDate": "2026-01-01",
+      "contact": "",
+      "observations": ""
+    },
+    {
+      "id": 15,
+      "name": "Ulisses Andrade Matos",
+      "nickname": "Ulisses",
+      "type": "coroinha",
+      "active": true,
+      "availability": {
+        "massIds": []
+      },
+      "restrictions": {
+        "days": [],
+        "massIds": [],
+        "monthly": {}
+      },
+      "joinDate": "2026-01-01",
+      "contact": "",
+      "observations": ""
+    },
+    {
+      "id": 16,
+      "name": "Vera Machado Leal",
+      "nickname": "Vera",
+      "type": "coroinha",
+      "active": true,
+      "availability": {
+        "massIds": []
+      },
+      "restrictions": {
+        "days": [],
+        "massIds": [],
+        "monthly": {}
+      },
+      "joinDate": "2026-01-01",
+      "contact": "",
+      "observations": ""
+    },
+    {
+      "id": 17,
+      "name": "Wesley Xavier Santos",
+      "nickname": "Wesley",
+      "type": "coroinha",
+      "active": true,
+      "availability": {
+        "massIds": []
+      },
+      "restrictions": {
+        "days": [],
+        "massIds": [],
+        "monthly": {}
+      },
+      "joinDate": "2026-01-01",
+      "contact": "",
+      "observations": ""
+    },
+    {
+      "id": 18,
+      "name": "Yara Guedes Peixoto",
+      "nickname": "Yara",
+      "type": "coroinha",
+      "active": true,
+      "availability": {
+        "massIds": []
+      },
+      "restrictions": {
+        "days": [],
+        "massIds": [],
+        "monthly": {}
+      },
+      "joinDate": "2026-01-01",
+      "contact": "",
+      "observations": ""
+    },
+    {
+      "id": 19,
+      "name": "Zeca Amaral Brito",
+      "nickname": "Zeca",
+      "type": "coroinha",
+      "active": true,
+      "availability": {
+        "massIds": []
+      },
+      "restrictions": {
+        "days": [],
+        "massIds": [],
+        "monthly": {}
+      },
+      "joinDate": "2026-01-01",
+      "contact": "",
+      "observations": ""
+    },
+    {
+      "id": 20,
+      "name": "Debora Salles Viana",
+      "nickname": "Debora",
+      "type": "coroinha",
+      "active": true,
+      "availability": {
+        "massIds": []
+      },
+      "restrictions": {
+        "days": [],
+        "massIds": [],
+        "monthly": {}
+      },
+      "joinDate": "2026-01-01",
+      "contact": "",
+      "observations": ""
+    },
+    {
+      "id": 21,
+      "name": "Enzo Rangel Moraes",
+      "nickname": "Enzo",
+      "type": "coroinha",
+      "active": true,
+      "availability": {
+        "massIds": []
+      },
+      "restrictions": {
+        "days": [],
+        "massIds": [],
+        "monthly": {}
+      },
+      "joinDate": "2026-01-01",
+      "contact": "",
+      "observations": ""
+    }
+  ]
+}

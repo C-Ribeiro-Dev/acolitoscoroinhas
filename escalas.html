@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Escalas | Acólitos e Coroinhas</title>
+  <meta name="description" content="Portal oficial dos Acólitos e Coroinhas. Consulte escalas, avisos, notícias e informações sobre as celebrações." />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0b0b12" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Escalas | Acólitos e Coroinhas" />
+  <meta property="og:description" content="Escalas, avisos e novidades em um só lugar. Portal oficial dos Acólitos e Coroinhas." />
+  <meta property="og:image" content="og-image.svg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Acólitos e Coroinhas" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Escalas | Acólitos e Coroinhas" />
+  <meta name="twitter:description" content="Escalas, avisos e novidades em um só lugar." />
+  <meta name="twitter:image" content="og-image.svg" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="shortcut icon" href="favicon.svg" type="image/svg+xml" />
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="favicon.svg" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Escalas A&C" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/print.css" />
+</head>
+<body>
+
+  <div data-partial="navbar"></div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CABEÇALHO + BUSCA INTEGRADA
+  ════════════════════════════════════════════════════════════ -->
+  <header class="page-header page-header-compact" role="banner">
+    <div class="container">
+
+      <div class="page-header-split">
+
+        <!-- Esquerda: identidade da página -->
+        <div class="page-header-inner">
+          <div class="page-header-icon" aria-hidden="true">📋</div>
+          <div>
+            <h1>Escalas</h1>
+            <p>Escalas semanais e busca por participante</p>
+          </div>
+        </div>
+
+        <!-- Direita: campo de busca -->
+        <div class="page-header-search-area" role="search">
+          <div class="page-search-label" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            Buscar participante
+          </div>
+          <div class="search-input-wrap">
+            <span class="search-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </span>
+            <input
+              type="search"
+              id="participantSearch"
+              class="search-input"
+              placeholder="Ex: Renata, Maria, Enzo…"
+              autocomplete="off"
+              spellcheck="false"
+              aria-label="Buscar participante por nome"
+              aria-controls="searchResults"
+              aria-autocomplete="list"
+            />
+            <button class="search-clear-btn" id="searchClearBtn" aria-label="Limpar busca" title="Limpar">✕</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Resultados aparecem abaixo, full-width -->
+      <div id="searchResults" class="search-results search-results-inline"
+           style="display:none;" role="region" aria-live="polite"
+           aria-label="Resultados da busca por participante"></div>
+
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       DETALHE DA SEMANA SELECIONADA
+  ════════════════════════════════════════════════════════════ -->
+  <section class="section section-flush-top" aria-labelledby="heading-week-detail">
+    <div class="container">
+
+      <!-- Navegador de semanas -->
+      <div class="schedule-toolbar">
+        <div class="week-navigator" role="group" aria-label="Navegar entre semanas">
+          <button class="btn btn-ghost btn-sm btn-icon" id="btnPrevWeek" aria-label="Semana anterior" title="Semana anterior">
+            ←
+          </button>
+          <span class="week-navigator-label" id="currentWeekLabel" aria-live="polite">
+            Carregando…
+          </span>
+          <button class="btn btn-ghost btn-sm btn-icon" id="btnNextWeek" aria-label="Próxima semana" title="Próxima semana">
+            →
+          </button>
+        </div>
+
+        <!-- Informação rápida -->
+        <div class="schedule-toolbar-info">
+          <span>Missas:</span>
+          <span class="badge badge-purple">Sáb 17h</span>
+          <span class="badge badge-purple">Dom 8h</span>
+          <span class="badge badge-purple">Dom 10h</span>
+          <span class="badge badge-purple">Dom 19h</span>
+        </div>
+      </div>
+
+      <!-- Missas especiais (Corpus Christi, etc.) — injetado por JS -->
+      <div id="specialMassEscalas" aria-live="polite"></div>
+
+      <!-- Tabela detalhada da semana focada -->
+      <div id="scheduleDetail" aria-live="polite" aria-label="Detalhe da semana selecionada">
+        <!-- Skeleton -->
+        <div class="skeleton" style="height:280px;border-radius:16px;"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       LISTA / GRADE DE SEMANAS
+  ════════════════════════════════════════════════════════════ -->
+  <section class="section section-alt" aria-labelledby="heading-week-list">
+    <div class="container">
+
+      <!-- Cabeçalho com filtros e alternância de visão -->
+      <div class="section-header" style="margin-bottom:var(--space-lg);">
+        <h2 class="section-title" id="heading-week-list">
+          Todas as Semanas
+        </h2>
+        <!-- Alternância cards / lista -->
+        <div class="view-toggle" role="group" aria-label="Modo de exibição">
+          <button class="view-toggle-btn active" data-view="cards" title="Visualizar como cards" aria-pressed="true">
+            ⊞
+          </button>
+          <button class="view-toggle-btn" data-view="list" title="Visualizar como lista" aria-pressed="false">
+            ≡
+          </button>
+        </div>
+      </div>
+
+      <!-- Filtros de status -->
+      <div class="filter-tabs" role="group" aria-label="Filtrar semanas" style="margin-bottom:var(--space-xl);">
+        <button class="filter-tab active" data-filter="all"      aria-pressed="true">Todas</button>
+        <button class="filter-tab"        data-filter="upcoming" aria-pressed="false">Próximas &amp; Atual</button>
+        <button class="filter-tab"        data-filter="past"     aria-pressed="false">Histórico</button>
+      </div>
+
+      <!-- Lista/grade de semanas -->
+      <div id="weekList" aria-live="polite">
+        <!-- Skeletons -->
+        <div class="schedules-grid">
+          <div class="skeleton" style="height:240px;border-radius:16px;"></div>
+          <div class="skeleton" style="height:240px;border-radius:16px;"></div>
+          <div class="skeleton" style="height:240px;border-radius:16px;"></div>
+          <div class="skeleton" style="height:240px;border-radius:16px;"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       LEGENDA
+  ════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-label="Legenda dos status">
+    <div class="container">
+      <h3 class="block-label">Legenda</h3>
+      <div style="display:flex;gap:var(--space-lg);flex-wrap:wrap;">
+        <div class="legend-row">
+          <span class="badge badge-green">Atual</span>
+          <span class="legend-row-text">Semana em andamento</span>
+        </div>
+        <div class="legend-row">
+          <span class="badge badge-purple">Próxima</span>
+          <span class="legend-row-text">Semanas futuras agendadas</span>
+        </div>
+        <div class="legend-row">
+          <span class="badge badge-blue">Passada</span>
+          <span class="legend-row-text">Histórico de semanas passadas</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div data-partial="footer"></div>
+
+  <!-- Área de impressão (oculta na tela, visível no print) -->
+  <div id="printArea" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SCRIPTS
+  ════════════════════════════════════════════════════════════ -->
+  <script type="module">
+    import { injectPartials } from './js/partials.js';
+    import { App } from './js/app.js';
+    import { AbsenceModal } from './js/shared/absence-modal.js';
+    import { Escalas } from './js/pages/escalas.js';
+    import { Search } from './js/pages/search.js';
+
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('sw.js'));
+    }
+
+    await injectPartials();
+    await App.init();
+    AbsenceModal.init();
+    await Escalas.init();
+    Search.init();
+
+    const config = App.getConfig();
+    if (config?.paroquia) {
+      const el = document.getElementById('footerParoquia');
+      if (el) el.textContent = config.paroquia;
+    }
+  </script>
+
+</body>
+</html>
